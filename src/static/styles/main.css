@@ -3,8 +3,9 @@
   --header-bg: #fff;
   --text-color: #f2f4f6;
   --text-color-hovered: #0766ad;
+  --link-color: #3876bf;
   --main-text-color: #e5e5e7;
-  --header-dark-bg: #040712;
+  --dark-bg: #040712;
   --main-dark-bg: #090a1b;
   --box-dark-bg: #151526;
   --category-bg: #f8f9fc;
@@ -90,6 +91,7 @@ a {
 .main {
   flex-grow: 1;
   padding-top: 24px;
+  padding-bottom: 24px;
   background-color: var(--main-dark-bg);
   color: var(--main-text-color);
 }
@@ -104,7 +106,7 @@ a {
 /* HEADER */
 
 .header {
-  background-color: var(--header-dark-bg);
+  background-color: var(--dark-bg);
 }
 .header__inner {
   display: flex;
@@ -119,9 +121,11 @@ a {
 .nav {
 }
 .nav__inner {
+  display: flex;
 }
 .nav__link {
   color: var(--text-color);
+  transition: color 250ms ease-in-out;
 }
 
 .nav__link:not(:last-child) {
@@ -129,6 +133,22 @@ a {
 }
 
 .nav__link--active {
+}
+
+.nav__link:hover {
+  color: var(--link-color);
+}
+
+.nav__link::after {
+  display: block;
+  content: "";
+  border-bottom: solid 1px var(--link-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
 }
 
 /* HERO SECTION */
@@ -299,4 +319,42 @@ a {
 }
 .post__item--createdDate {
   float: right;
+}
+
+/* FOOTER */
+
+.footer {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+}
+.footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.site__copyright {
+}
+
+.site__author--github {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--link-color);
+  display: inline-block;
+  margin: 0;
+  /* text-transform: uppercase; */
+  transition: border-bottom 0.4s ease;
+}
+
+.site__author--github::after {
+  display: block;
+  content: "";
+  border-bottom: solid 1px var(--link-color);
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.site__author--github:hover:after {
+  transform: scaleX(1);
 }
