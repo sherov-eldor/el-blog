@@ -1,0 +1,10 @@
+env
+__pycache__/
+*.db
+*.sqlite
+
+src/uploads/articles/*
+!src/uploads/articles/.gitkeep
+
+src/uploads/categories/*
+!src/uploads/categories/.gitkeep
