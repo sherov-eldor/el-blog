@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/normalize.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/normalize.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/main.css')}}"
+    />
     <title>El blog</title>
-</head>
-<body>
-    <h1>My Blog</h1>
-</body>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner container--middle">
+        <a href="/" class="site__logo--link"> Logo </a>
+        <nav class="nav">
+          <div class="nav__inner">
+            <a href="" class="nav__link nav__link--active">Blog</a>
+            <a href="" class="nav__link">About</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main__inner container">
+        <section class="hero">
+          <div class="hero__inner">
+            <div class="hero__typography">
+              <h2 class="hero__title">Code Snippets</h2>
+              <p class="hero__subtitle">
+                30 seconds of code provides a curated collection of short code
+                snippets for all your development needs. Our collection spans
+                many topics, ranging from simple coding problems to theoretical
+                concepts and development techniques.
+              </p>
+            </div>
+            <div class="hero__image--box">
+              <div class="hero__image--wrapper">
+                <img class="hero__image" src="{{ url_for('static', filename='images/hero-img.jpg') }}" width="400" height="400" alt="hero image" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
