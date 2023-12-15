@@ -20,9 +20,32 @@
     <title>El blog</title>
   </head>
   <body>
-    {% block home %}
+    <header class="header">
+      <div class="header__inner container--middle">
+        <a href="/" class="site__logo--link"> Logo </a>
+        <nav class="nav">
+          <div class="nav__inner">
+            <a href="" class="nav__link nav__link--active">Blog</a>
+            <a href="" class="nav__link">About</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    {% block home %} {% endblock %} {% block post %} {% endblock %}
 
-    {% endblock %}
-
+    <footer class="footer">
+      <div class="footer__inner container--middle">
+        <p class="site__copyright">
+          Website, name & logo &#169; 2023
+          <!-- <a href="https://github.com/sherov-eldor" class="site__author--github">Sherov Eldor</a> -->
+        </p>
+        <nav class="nav footer__nav">
+          <div class="nav__inner">
+            <a href="" class="nav__link">About</a>
+            <a href="" class="nav__link nav__link--active">GitHub</a>
+          </div>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
