@@ -15,6 +15,7 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    from src.routes import base
+    from src.routes import base, post
     
     app.register_blueprint(base.base_route)
+    app.register_blueprint(post.post_route)

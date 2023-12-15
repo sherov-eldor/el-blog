@@ -1,0 +1,69 @@
+{% extends "layout/base.html" %} {% block post %}
+<main class="main">
+  <div class="main__inner container">
+    <section class="post__section">
+      <div class="post__section--inner">
+        <header class="post__section--header">
+          <nav class="post__section--nav post__nav">
+            <ul class="post__section--list post__nav--list">
+              <li class="post__section--item post__nav--item breadcrumb-item">
+                <a href="/" class="post__section--link post__nav--link">
+                  Home
+                </a>
+              </li>
+              <li class="post__section--item post__nav--item breadcrumb-item">
+                <a href="/" class="post__section--link post__nav--link">
+                  CSS
+                </a>
+              </li>
+              <li class="post__section--item post__nav--item breadcrumb-item">
+                <a href="/" class="post__section--link post__nav--link">
+                  Visual
+                </a>
+              </li>
+              <li class="post__section--item post__nav--item breadcrumb-item">
+                  Image gallery with vertical scroll
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <article class="post__article">
+          <header class="post__header">
+            <h1 class="post__title title-post">
+              Резиновые уточки как способ самопознания
+            </h1>
+
+            <div class="post__header--bottom">
+              <ul class="post__tag--list">
+                <li class="post__tag--item">HTML</li>
+                <li class="post__tag--item">CSS</li>
+                <li class="post__tag--item">JavaScript</li>
+              </ul>
+              <time class="post__datetime">32 мая, 10:87</time>
+            </div>
+          </header>
+
+          <section class="post__content">
+            <img
+              class="post__image"
+              width="100%"
+              height="400"
+              src="{{ url_for('static', filename='images/post-image.webp') }}"
+              alt="post image"
+            />
+            <h3 class="post__subtitle">The problems with HTML classes</h3>
+            <p class="post__text">
+              More often than not, when representing UI state in HTML, we use
+              classes. This often translates into React components or JavaScript
+              code that check a handful of conditions and add or remove classes
+              accordingly. Let's look at an example:
+            </p>
+          </section>
+
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}

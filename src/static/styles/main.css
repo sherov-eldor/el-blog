@@ -358,3 +358,139 @@ a {
 .site__author--github:hover:after {
   transform: scaleX(1);
 }
+
+
+/* POST SECTION */
+
+.post__section {
+  
+}
+.post__section--inner {
+}
+.post__section--header {
+  padding: 8px 0;
+  margin-bottom: 16px;
+}
+.post__section--nav {
+  
+}
+.post__nav {
+}
+.post__section--list {
+  display: flex;
+  align-items: center;
+}
+.post__nav--list {
+}
+.post__section--item {
+}
+.post__nav--item {
+}
+
+.post__nav--item:not(:last-child) {
+  margin-right: 4px;
+}
+
+.post__nav--item:first-child:before {
+  content: '';
+}
+
+.post__nav--item::before {
+  content: '/';
+}
+
+.post__nav--item:last-child {
+}
+
+.post__section--link {
+  font-size: 18px;
+}
+.post__nav--link {
+  transition: color .4s ease;
+}
+.post__nav--link:hover {
+  color: var(--text-color-hovered);
+}
+
+.post__article {
+  background-color: var(--box-dark-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+.post__header {
+  margin-bottom: 24px;
+}
+.post__title {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.75;
+}
+.title-post {
+}
+.post__header--bottom {
+  display: flex;
+  align-items: center;
+}
+.post__tag--list {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.post__tag--item {
+  font-style: 18px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+.post__tag--item:not(:first-child) {
+  margin-left: 4px;
+}
+.post__tag--item:last-child::after {
+  content: '';
+}
+.post__tag--item::after {
+  content: ',';
+}
+.post__datetime {
+  opacity: 0.7;
+}
+
+.post__datetime::before {
+  content: '·';
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.post__content {
+}
+.post__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.post__subtitle {
+  display: inline-block;
+  font-style: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.75;
+}
+
+.post__subtitle::before {
+  position: relative;
+  display: none;
+  left: -5px;
+  content: '#';
+  color: var(--text-color-hovered);
+  transition: display .4s ease;
+} 
+
+.post__subtitle:hover.post__subtitle::before {
+  display: inline-block;
+} 
+
+.post__text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+}
