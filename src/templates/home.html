@@ -1,0 +1,144 @@
+{% extends "layout/base.html" %} 
+{% block home %}
+<header class="header">
+  <div class="header__inner container--middle">
+    <a href="/" class="site__logo--link"> Logo </a>
+    <nav class="nav">
+      <div class="nav__inner">
+        <a href="" class="nav__link nav__link--active">Blog</a>
+        <a href="" class="nav__link">About</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="main">
+  <div class="main__inner container">
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__typography">
+          <h2 class="hero__title">Code Snippets</h2>
+          <p class="hero__subtitle">
+            30 seconds of code provides a curated collection of short code
+            snippets for all your development needs. Our collection spans many
+            topics, ranging from simple coding problems to theoretical concepts
+            and development techniques.
+          </p>
+        </div>
+        <div class="hero__image--box">
+          <div class="hero__image--wrapper">
+            <img
+              class="hero__image"
+              src="{{ url_for('static', filename='images/hero-img.jpg') }}"
+              width="400"
+              height="400"
+              alt="hero image"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="category__section">
+      <div class="category__section--inner">
+        <ul class="category__list">
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+          <li class="category__item">
+            <a href="/" class="category__link">JavaScript</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <section class="posts">
+      <div class="posts__inner">
+        <ul class="posts__list">
+          <li class="posts__item post__item">
+            <div class="post__item--image-box">
+              <div class="post__item--image-wrapper">
+                <img
+                  class="post__item--image"
+                  src="{{ url_for('static', filename='images/default-post-image.jpg') }}"
+                  alt="default-post-image"
+                />
+              </div>
+            </div>
+            <div class="post__item--typography">
+              <h4 class="post__item--title">
+                Соревнования среди воблы по конькобежному спорту
+              </h4>
+              <div class="post__item--text">
+                <p>Победила команда килек из Петрозаводска</p>
+              </div>
+              <footer class="post__item--footer">
+                <span class="post__item--category">JavaScript</span>
+                <span class="post__item--tag">Object</span>
+                <span class="post__item--createdDate">Sep 28, 2001</span>
+              </footer>
+            </div>
+          </li>
+          <li class="posts__item post__item">
+            <div class="post__item--image-box">
+              <div class="post__item--image-wrapper">
+                <img
+                  class="post__item--image"
+                  src="{{ url_for('static', filename='images/default-post-image.jpg') }}"
+                  alt="default-post-image"
+                />
+              </div>
+            </div>
+            <div class="post__item--typography">
+              <h4 class="post__item--title">
+                Соревнования среди воблы по конькобежному спорту
+              </h4>
+              <div class="post__item--text">
+                <p>Победила команда килек из Петрозаводска</p>
+              </div>
+              <footer class="post__item--footer">
+                <span class="post__item--category">JavaScript</span>
+                <span class="post__item--tag">Object</span>
+                <span class="post__item--createdDate">Sep 28, 2001</span>
+              </footer>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner container--middle">
+    <p class="site__copyright">
+      Website, name & logo &#169; 2023
+      <!-- <a href="https://github.com/sherov-eldor" class="site__author--github">Sherov Eldor</a> -->
+    </p>
+    <nav class="nav footer__nav">
+      <div class="nav__inner">
+        <a href="" class="nav__link">About</a>
+        <a href="" class="nav__link nav__link--active">GitHub</a>
+      </div>
+    </nav>
+  </div>
+</footer>
+{% endblock %}
