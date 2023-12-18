@@ -2,9 +2,8 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from flask_basicauth import BasicAuth
-from wtforms import Field, TextAreaField, StringField
-from wtforms.widgets import TextArea, TextInput
+from wtforms import  TextAreaField
+from wtforms.widgets import TextArea
 from app.utils.extensions import title_to_slug
 from re import sub
 
@@ -14,13 +13,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['PORT'] = 5000
-app.config['BASIC_AUTH_USERNAME'] = 'eldor'
-app.config['BASIC_AUTH_PASSWORD'] = 'matrix'
-app.config['BASIC_AUTH_FORCE'] = True
 
 db = SQLAlchemy(app)
 admin = Admin(app, name='el-blog', template_mode='bootstrap3')
-basic_auth = BasicAuth(app)
 
 from app.model import Category, Post
     

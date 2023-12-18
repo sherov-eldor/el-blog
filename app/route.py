@@ -1,5 +1,5 @@
 from flask import render_template
-from app import app, basic_auth
+from app import app
 from app.model import Post
 from app.utils.extensions import title_to_slug
 
@@ -24,10 +24,6 @@ def post(category, post_title):
     print(post)
     return render_template('post.html')
 
-@app.route('/admin')
-@basic_auth.required
-def secret_view():
-    return render_template('admin/index.html')
 
 
 
