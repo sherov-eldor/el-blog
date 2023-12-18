@@ -6,6 +6,7 @@
         <header class="post__section--header">
           <nav class="post__section--nav post__nav">
             <ul class="post__section--list post__nav--list">
+              
               <li class="post__section--item post__nav--item breadcrumb-item">
                 <a href="/" class="post__section--link post__nav--link">
                   Home
@@ -27,6 +28,16 @@
             </ul>
           </nav>
         </header>
+
+
+        {% for post in posts %}
+          <article class="post__article">
+            {{ post.title | safe }}
+            {{ post.body | safe }}
+
+          </article>
+        {% endfor %}
+
 
         <article class="post__article">
           <header class="post__header">
