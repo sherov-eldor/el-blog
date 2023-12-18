@@ -33,7 +33,7 @@ class Post(db.Model):
     
     @classmethod
     def get_post_with_slug(cls, slug):
-        print("slug : ", slug)
+        return cls.query.filter_by(slug = slug).first()
         
     
     def __init__(self, title):

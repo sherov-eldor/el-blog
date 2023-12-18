@@ -31,30 +31,11 @@
     <section class="category__section">
       <div class="category__section--inner">
         <ul class="category__list">
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
-          <li class="category__item">
-            <a href="/" class="category__link">JavaScript</a>
-          </li>
+          {% for category in categories %}
+            <li class="category__item">
+              <a href="{{ url_for('get_category_posts',   category_slug=category.slug) }}" class="category__link">{{ category.name }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </section>
@@ -64,7 +45,7 @@
       <div class="posts__inner">
         <ul class="posts__list">
           {% for post in posts %}
-                  <a href="css/{{ post.slug }}" class="posts__item post__item">
+                  <a href="{{ url_for('post',   post_slug=post.slug) }}" class="posts__item post__item">
                     <div class="post__item--image-box">
                         <div class="post__item--image-wrapper">
                           <img class="post__item--image"  src="{{ url_for('static', filename='images/default-post-image.jpg') }}" alt="default-post-image">
@@ -78,14 +59,14 @@
                               {{ post.post_text }}
                           </div>
                           <footer class="post__item--footer">
-                              <span class="post__item--category">JavaScript</span>
-                              <span class="post__item--tag">Object</span>
-                              <span class="post__item--createdDate">Sep 28, 2001</span>
+                              <span class="post__item--category"> {{ post.category_id|category_name }} </span>
+                              <!-- <span class="post__item--tag">Object</span> -->
+                              <span class="post__item--createdDate">{{ '%s/%s/%s' % (post.created_date.month, post.created_date.day, post.created_date.year) }}</span>
                           </footer>
                     </div>
                   </a>
                 {% endfor %}
-          <li class="posts__item post__item">
+          <!-- <li class="posts__item post__item">
             <div class="post__item--image-box">
               <div class="post__item--image-wrapper">
                 <img
@@ -132,7 +113,7 @@
                 <span class="post__item--createdDate">Sep 28, 2001</span>
               </footer>
             </div>
-          </li>
+          </li> -->
         </ul>
       </div>
     </section>
