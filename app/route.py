@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, current_app
 from app import app
 from app.model import Post, Category
 
@@ -9,6 +9,7 @@ from app.model import Post, Category
 def home():
     categories = Category.query.all()
     posts = Post.query.join(Category, Post.category_id == Category.id).with_entities(Post.title, Post.category_id, Post.post_text, Post.created_date, Post.slug).all()
+    posts.reverse()
     return render_template('home.html', categories=categories, posts=posts)
 
 
@@ -34,4 +35,6 @@ def get_category_name(id):
     return Category.query.filter_by(id = id).first().name
 
 
-
+@app.template_filter('limited_str')
+def limited_str(str):
+    return f"{str[0:200]}..."
