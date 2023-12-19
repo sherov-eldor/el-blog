@@ -9,12 +9,11 @@ from app.utils.extensions import title_to_slug
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '2ae0a61787937e86297484b3051424dc'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
-app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
-# app.config['SQLALCHEMY_ECHO'] = True
+app.config['FLASK_ADMIN_SWATCH'] = 'solar'
 app.config['PORT'] = 5000
 
 db = SQLAlchemy(app)
-admin = Admin(app, name='el-blog', template_mode='bootstrap3')
+admin = Admin(app, name='el-blog', template_mode='bootstrap4')
 
 from app.model import Category, Post
     
@@ -33,9 +32,8 @@ class CKTextAreaField(TextAreaField):
 class PostModelView(ModelView):
     column_list = ('title', 'body', 'category')
     form_excluded_columns = ('slug')
-    extra_js = ['//cdn.ckeditor.com/4.20.0/standard/ckeditor.js']
+    extra_js = ['https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js']
     form_overrides = {
-        'slug' : '',
         'body': CKTextAreaField
     }
     
