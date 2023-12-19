@@ -45,18 +45,18 @@
       <div class="posts__inner">
         <ul class="posts__list">
           {% for post in posts %}
-                  <a href="{{ url_for('post',   post_slug=post.slug) }}" class="posts__item post__item">
+                  <li class="posts__item post__item">
                     <div class="post__item--image-box">
                         <div class="post__item--image-wrapper">
                           <img class="post__item--image"  src="{{ url_for('static', filename='images/default-post-image.jpg') }}" alt="default-post-image">
                         </div>
                     </div>
                     <div class="post__item--typography">
-                          <h4 class="post__item--title">
+                          <a href="{{ url_for('post',   post_slug=post.slug) }}" class="post__item--title">
                             {{ post.title }}
-                          </h4>
+                          </a>
                           <div class="post__item--text">
-                              {{ post.post_text }}
+                              {{ post.post_text|limited_str }}
                           </div>
                           <footer class="post__item--footer">
                               <span class="post__item--category"> {{ post.category_id|category_name }} </span>
@@ -64,7 +64,7 @@
                               <span class="post__item--createdDate">{{ '%s/%s/%s' % (post.created_date.month, post.created_date.day, post.created_date.year) }}</span>
                           </footer>
                     </div>
-                  </a>
+                  </li>
                 {% endfor %}
           <!-- <li class="posts__item post__item">
             <div class="post__item--image-box">
@@ -122,3 +122,5 @@
 
 
 {% endblock %}
+
+

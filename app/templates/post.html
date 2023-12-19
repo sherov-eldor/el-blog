@@ -41,22 +41,8 @@
             </header>
             
             <section class="post__content">
-              <img
-                class="post__image"
-                width="100%"
-                height="400"
-                src="{{ url_for('static', filename='images/post-image.webp') }}"
-                alt="post image"
-              />
-              <h3 class="post__subtitle">The problems with HTML classes</h3>
-              <p class="post__text">
-                More often than not, when representing UI state in HTML, we use
-                classes. This often translates into React components or JavaScript
-                code that check a handful of conditions and add or remove classes
-                accordingly. Let's look at an example:
-              </p>
+              {{ post.body | safe }}
             </section>
-            {{ post.body | safe }}
           </article>
 
 
