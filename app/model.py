@@ -14,7 +14,7 @@ class Category(db.Model):
         self.name = name
 
     def __repr__(self):
-        return '<Category %r>' % self.name
+        return self.name
     
     
 class Post(db.Model):
@@ -24,6 +24,8 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), unique=True)
     slug = db.Column(db.String(255), unique=True)
+    post_img_uri = db.Column(db.String(255), default="{{ url_for('static', filename='images/default-post-image.jpg') }}")
+    # lenta_img = db.Column(db.LargeBinary, nullable = False)
     post_text = db.Column(db.String(255))
     body = db.Column(db.Text)
     created_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

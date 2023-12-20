@@ -8,7 +8,7 @@ from app.model import Post, Category
 @app.route('/home')
 def home():
     categories = Category.query.all()
-    posts = Post.query.join(Category, Post.category_id == Category.id).with_entities(Post.title, Post.category_id, Post.post_text, Post.created_date, Post.slug).all()
+    posts = Post.query.join(Category, Post.category_id == Category.id).with_entities(Post.title, Post.post_img_uri, Post.category_id, Post.post_text, Post.created_date, Post.slug).all()
     posts.reverse()
     return render_template('home.html', categories=categories, posts=posts)
 
