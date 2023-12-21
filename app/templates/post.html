@@ -31,12 +31,15 @@
               <h1 class="post__title title-post">
                 {{ post.title | safe }}
               </h1>
-  
+              
               <div class="post__header--bottom">
                 <ul class="post__tag--list">
                   <li class="post__tag--item">{{ post.category.name }}</li>
                 </ul>
                 <time class="post__datetime">{{ '%s/%s/%s' % (post.created_date.month, post.created_date.day, post.created_date.year) }}</time>
+              </div>
+              <div class="post__header--image--wrapper">
+                <img src="{% if post.post_img_uri is not none %}{{ url_for('uploads', file_name=post.post_img_uri) }}{% endif %}" alt="" class="post__header--image">
               </div>
             </header>
             

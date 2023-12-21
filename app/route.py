@@ -1,6 +1,6 @@
 from flask import render_template, current_app, send_from_directory
 from app import app
-from app.model import Post, Category
+from app.model import Post, Category    
 
 # HOME PAGE
 # GET ALL CATEGORIES AND POSTS
@@ -43,5 +43,4 @@ def limited_str(str):
 
 @app.route('/uploads/<file_name>')
 def uploads(file_name):
-    print(file_name)
     return send_from_directory('uploads/articles', file_name)
