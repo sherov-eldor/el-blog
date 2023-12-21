@@ -1,4 +1,4 @@
-from flask import render_template, current_app
+from flask import render_template, current_app, send_from_directory
 from app import app
 from app.model import Post, Category
 
@@ -25,6 +25,8 @@ def get_category_posts(category_slug):
     category = Category.query.filter_by(slug = category_slug).first()
     return render_template('home.html', posts = category.posts)
 
+
+# CUSTOM TIMPLATE FILTERS
 @app.template_filter('category_slug')
 def get_category_slug(id):
     return Category.query.filter_by(id = id).first().slug
@@ -38,3 +40,8 @@ def get_category_name(id):
 @app.template_filter('limited_str')
 def limited_str(str):
     return f"{str[0:200]}..."
+
+@app.route('/uploads/<file_name>')
+def uploads(file_name):
+    print(file_name)
+    return send_from_directory('uploads/articles', file_name)
