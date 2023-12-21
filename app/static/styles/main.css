@@ -16,6 +16,14 @@
   --color-primary : #5394fd;
 }
 
+[data-theme="light"] {
+  
+}
+
+[data-theme="dark"] {
+
+}
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -39,6 +47,7 @@ body {
   height: 100%;
   background-color: #fff;
   color: #222;
+  z-index: 1;
 }
 
 img {
@@ -91,6 +100,7 @@ a {
 /* MAIN */
 
 .main {
+  z-index: 2;
   flex-grow: 1;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -109,12 +119,18 @@ a {
 
 .header {
   background-color: var(--dark-bg);
+  z-index: 3;
 }
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 30px 0;
+}
+
+.header__inner--rigth {
+  display: flex;
+  align-items: center;
 }
 
 .site__logo--link {
@@ -151,6 +167,58 @@ a {
 
 .nav__link:hover::after {
   transform: scaleX(1);
+}
+
+/* CHANGE MODE */
+
+.mode__changer {
+  margin-left: 16px;
+  padding: 0 2px;
+  /* background-image: url('app/static/images/sunny-day.jpg'); */
+  /* background: url(/app/static/images/sunny-day.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+  background-color: var(--header-bg);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+/* .mode__btn {
+  display: none;
+  cursor: pointer;
+  border: unset;
+  background: unset;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+} */
+
+.mode__changer svg {
+  transform: scale(0.9);
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.mode__changer:hover svg {
+  transform: scale(1.1);
+}
+
+.moon__svg, .sun__svg {
+  display: none;
+}
+
+.sun__svg.hide {
+  position: relative;
+}
+
+.sun__svg.show {
+  display: block;
 }
 
 /* HERO SECTION */
