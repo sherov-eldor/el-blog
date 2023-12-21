@@ -24,7 +24,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), unique=True)
     slug = db.Column(db.String(255), unique=True)
-    post_img_uri = db.Column(db.String(255), default="{{ url_for('static', filename='images/default-post-image.jpg') }}")
+    post_img_uri = db.Column(db.String(255))
     # lenta_img = db.Column(db.LargeBinary, nullable = False)
     post_text = db.Column(db.String(255))
     body = db.Column(db.Text)
