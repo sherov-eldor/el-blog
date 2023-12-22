@@ -30,15 +30,33 @@
     <section class="category__section">
       <div class="category__section--inner">
         <ul class="category__list">
-          {% for category in categories %}
-          <li class="category__item">
-            <a
-              href="{{ url_for('get_category_posts',   category_slug=category.slug) }}"
-              class="category__link"
-              >{{ category.name }}</a
-            >
-          </li>
-          {% endfor %}
+          <!-- {{request.path.startswith('/category')}} -->
+          {% if request.path.startswith('/category') %}
+            <li class="category__item">
+              <a
+                href="{{ url_for('home') }}"
+                class="category__link"
+                >Home</a
+              >
+            </li>
+            <li class="category__item">
+              <a
+                href="{{ url_for('get_category_posts',   category_slug=category.slug) }}"
+                class="category__link"
+                >{{ category.name }}</a
+              >
+            </li>
+          {% elif request.path.startswith('/') %}
+            {% for category in categories %}
+            <li class="category__item">
+              <a
+                href="{{ url_for('get_category_posts',   category_slug=category.slug) }}"
+                class="category__link"
+                >{{ category.name }}</a
+              >
+            </li>
+            {% endfor %}
+          {% endif %}
         </ul>
       </div>
     </section>

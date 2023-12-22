@@ -1,4 +1,4 @@
-from flask import render_template, current_app, send_from_directory
+from flask import render_template, current_app, send_from_directory, request
 from app import app
 from app.model import Post, Category    
 
@@ -23,7 +23,11 @@ def post(post_slug):
 @app.route('/category/<category_slug>')
 def get_category_posts(category_slug):
     category = Category.query.filter_by(slug = category_slug).first()
-    return render_template('home.html', posts = category.posts)
+    category_obj = {
+        'name' : category.name,
+        'slug' : category.slug
+    }
+    return render_template('home.html', posts = category.posts, category= category_obj)
 
 
 # CUSTOM TIMPLATE FILTERS
