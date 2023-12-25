@@ -696,6 +696,11 @@ a {
 }
 
 @media screen and (max-width: 650px) {
+  .container {
+    max-width: 1200px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   .post__item--image-wrapper {
     width: 200px;
     height: 200px;
@@ -742,6 +747,11 @@ a {
 }
 
 @media screen and (max-width: 576px) {
+  .container {
+    max-width: 1200px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .header__inner  {
     padding: 0 16px;
   }
