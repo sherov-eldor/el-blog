@@ -45,6 +45,11 @@ def get_category_name(id):
 def limited_str(str):
     return f"{str[0:200]}..."
 
+@app.template_filter('limited_title')
+def limited_title(str):
+    print(str)
+    return f"{str[0:150]}..."
+
 @app.route('/uploads/<file_name>')
 def uploads(file_name):
     return send_from_directory('uploads/articles', file_name)

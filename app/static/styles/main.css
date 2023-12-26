@@ -384,6 +384,11 @@ a {
   line-height: 1.6;
   margin-bottom: 8px;
   transition: text-decoration 0.4s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 330px);
+  
 }
 .post__item--text {
   flex-grow: 1;
@@ -532,6 +537,9 @@ a {
   line-height: 1.75;
 }
 .title-post {
+  overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: pretty;
 }
 .post__header--bottom {
   display: flex;
@@ -660,6 +668,21 @@ a {
 
 /* MOBILE */
 
+@media screen and (max-width: 992px) {
+  .post__content--code code {
+    white-space: pre-wrap;
+    hyphens: none;
+    tab-size: 10px;
+  }
+
+  .post__title.title-post {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.6;
+    
+  }
+}
+
 @media screen and (max-width: 786px) {
   .post__item--image-wrapper {
     width: 250px;
@@ -674,6 +697,9 @@ a {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.6;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-wrap: pretty;
   }
 
   .post__item--text {
@@ -692,6 +718,37 @@ a {
 
   .post__item--createdDate {
     font-size: 15px;
+  }
+
+  
+  .post__title.title-post {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+
+  .post__header--image {
+    /* width: 400px;
+    height: 400px; */
+  }
+
+  .post__content h3 {
+
+  }
+
+  .post__content ul li {
+
+  }
+
+  .post__content ul li strong{
+
+  }
+
+  .post__content--code code {
+    white-space: pre-wrap;
+    hyphens: none;
+    tab-size: 2;
   }
 }
 
@@ -744,6 +801,16 @@ a {
     margin-bottom: 4px;
     margin-top: 4px;
   }
+
+  .post__nav--list {
+    
+  }
+
+  .breadcrumb-item:last-child {
+    font-size: 15px;
+    /* white-space: normal; */
+    /* hyphens: none; */
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -752,11 +819,15 @@ a {
     padding-left: 30px;
     padding-right: 30px;
   }
-  .header__inner  {
+  .header__inner {
     padding: 0 16px;
   }
   .site__logo--link svg {
     width: 150px;
+  }
+  .change__mode {
+    width: 30px;
+    height: 30px;
   }
   .main {
     padding-top: 16px;

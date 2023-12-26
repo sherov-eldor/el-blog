@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let code_block = document.querySelector(".post__content pre");
+  let code_block = document.querySelectorAll(".post__content pre");
   if (code_block) {
-    code_block.classList.add("post__content--code", "code__content");
+    code_block.forEach(block => {
+      block.classList.add("post__content--code", "code__content");
+    })
+    // let code = code_block.querySelector('code')
+    // console.log(code.textContent);
   }
 
   // SITE THEME CHANGE

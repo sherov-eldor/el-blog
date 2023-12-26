@@ -82,7 +82,7 @@
                 href="{{ url_for('post',   post_slug=post.slug) }}"
                 class="post__item--title"
               >
-                {{ post.title }}
+                {{ post.title|limited_title }}
               </a>
               <div class="post__item--text">
                 {{ post.post_text|limited_str }}
