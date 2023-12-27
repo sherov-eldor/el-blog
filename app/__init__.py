@@ -5,7 +5,7 @@ from flask_admin.contrib.sqla import ModelView
 from markupsafe import Markup
 from wtforms import  TextAreaField
 from wtforms.widgets import TextArea
-from app.utils.extensions import UserModelView, title_to_slug
+from app.utils.extensions import MyIndexView, UserModelView, title_to_slug
 import os, ast
 import os.path as op
 # from fields import MultipleImageUploadField
@@ -20,7 +20,7 @@ app.config['FLASK_ADMIN_SWATCH'] = 'solar'
 app.config['PORT'] = 5000
 
 db = SQLAlchemy(app)
-admin = Admin(app, name='el-blog', template_mode='bootstrap4')
+admin = Admin(app, name='el-blog', index_view=MyIndexView(), template_mode='bootstrap4')
 
 
 login_manager = LoginManager(app)
