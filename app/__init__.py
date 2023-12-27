@@ -5,11 +5,12 @@ from flask_admin.contrib.sqla import ModelView
 from markupsafe import Markup
 from wtforms import  TextAreaField, MultipleFileField
 from wtforms.widgets import TextArea
-from app.utils.extensions import title_to_slug
+from app.utils.extensions import MyAdminIndexView, UserModelView, title_to_slug
 import os, ast
 import os.path as op
 # from fields import MultipleImageUploadField
 from secrets import token_hex
+from flask_login import LoginManager
 
 
 app = Flask(__name__)
@@ -21,7 +22,15 @@ app.config['PORT'] = 5000
 db = SQLAlchemy(app)
 admin = Admin(app, name='el-blog', template_mode='bootstrap4')
 
-from app.model import Category, Post
+
+login_manager = LoginManager(app)
+
+# Create user loader function
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+from app.model import Category, Post, User
     
 class CKTextAreaWidget(TextArea):
     def __call__(self, field, **kwargs):
@@ -94,6 +103,7 @@ class PostModelView(ModelView):
 
 admin.add_view(ModelView(Category, db.session))
 admin.add_view(PostModelView(Post, db.session))
+admin.add_view(UserModelView(User, db.session))
 
 with app.app_context():
     # db.drop_all()
