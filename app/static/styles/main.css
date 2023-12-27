@@ -384,10 +384,6 @@ a {
   line-height: 1.6;
   margin-bottom: 8px;
   transition: text-decoration 0.4s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: calc(100% - 330px);
   
 }
 .post__item--text {
@@ -669,10 +665,9 @@ a {
 /* MOBILE */
 
 @media screen and (max-width: 992px) {
-  .post__content--code code {
-    white-space: pre-wrap;
-    hyphens: none;
-    tab-size: 10px;
+  .post__content--code  {
+    widows: 350px;
+    overflow-x: scroll;
   }
 
   .post__title.title-post {
@@ -697,9 +692,9 @@ a {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.6;
-    overflow-wrap: break-word;
+    /* overflow-wrap: break-word;
     hyphens: auto;
-    text-wrap: pretty;
+    text-wrap: pretty; */
   }
 
   .post__item--text {
@@ -745,11 +740,6 @@ a {
 
   }
 
-  .post__content--code code {
-    white-space: pre-wrap;
-    hyphens: none;
-    tab-size: 2;
-  }
 }
 
 @media screen and (max-width: 650px) {
