@@ -1,6 +1,7 @@
 from datetime import datetime
 from app import db
 from app.utils.extensions import title_to_slug
+from flask_login import UserMixin
     
 class Category(db.Model):
     
@@ -43,3 +44,29 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post %r>' % self.title
+
+
+# Create user model.
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(80), unique=True)
+    password = db.Column(db.String(64))
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    # Required for administrative interface
+    def __unicode__(self):
+        return self.username
