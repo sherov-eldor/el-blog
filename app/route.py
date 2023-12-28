@@ -1,5 +1,5 @@
 from flask import redirect, render_template, current_app, send_from_directory, request, url_for
-from app import app
+from app import app, db
 from app.model import Post, Category,User
 from app.templates.form.login import LoginForm    
 from flask_login import current_user, login_required, login_user, logout_user
@@ -38,11 +38,18 @@ def login():
         return redirect(url_for('admin.index'))
         
     if form.validate_on_submit():
-        user = User.query.filter_by(login=form.login.data, password=form.password.data).first()
-        if user:
-            login_user(user)
-            return redirect(url_for('admin.index'))
-            
+        user_list_len = len(User.query.all())
+        if user_list_len != 0:
+            user = User.query.filter_by(login=form.login.data, password=form.password.data).first()
+            if user:
+                login_user(user)
+                return redirect(url_for('admin.index'))
+        else:
+            if form.login.data == 'eladmin' and form.password.data == '1234':
+                user = User(login=form.login.data, password=form.password.data)
+                db.session.add(user)
+                db.session.commit()
+                return redirect(url_for('admin.index'))
     return render_template('login.html', form=form)
 
 @app.route('/logout')

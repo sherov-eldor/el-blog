@@ -2,6 +2,7 @@ env
 __pycache__/
 *.db
 *.sqlite
+docs/*
 instance/*
 src/uploads/articles/*
 !src/uploads/articles/.gitkeep
