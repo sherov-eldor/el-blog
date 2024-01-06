@@ -68,7 +68,7 @@ def del_image(mapper, connection, target):
             pass
 
 class PostModelView(ModelView):
-    column_list = ('title', 'body', 'category')
+    column_list = ('title', 'category')
     form_excluded_columns = ('slug')
     extra_js = ['https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js']
     form_overrides = {
